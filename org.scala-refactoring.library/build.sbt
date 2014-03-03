@@ -1,12 +1,18 @@
-name := "org.scala-refactoring"
+name := "org.scala-refactoring.library"
+
+organization := "org.scala-refactoring"
 
 version := "0.6.2-SNAPSHOT"
 
-scalaVersion := "2.10.1"
+scalaVersion := "2.11.0-RC1"
 
-crossScalaVersions := Seq("2.10.1")
+crossScalaVersions := Seq("2.10.3")
 
 publishMavenStyle := true
+
+// artifactName := { (sv, module, artifact) =>
+//  s"${name.value}_${sv.binary}-${module.revision}.${artifact.extension}"
+// }
 
 publishTo <<= version { (v: String) =>
   val nexus = "https://oss.sonatype.org/"
@@ -43,7 +49,7 @@ pomExtra := (
 
 credentials += Credentials(Path.userHome / ".m2" / "credentials")
 
-libraryDependencies += "org.scala-lang" % "scala-compiler" % "2.10.1"
+libraryDependencies += "org.scala-lang" % "scala-compiler" % scalaVersion.value
 
 libraryDependencies += "com.novocode" % "junit-interface" % "0.10" % "test"
 
